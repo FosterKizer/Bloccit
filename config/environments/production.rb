@@ -78,5 +78,5 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
   
   #http://bloccit.herokuap.com
-  config.action_mailer.dfault_url_options = { host: 'fosterk-bloccit.herokuapp.com/' }
+  config.action_mailer.dfault_url_options = { host: 'fosterk-bloccit.herokuapp.com' }
 end
