@@ -1,4 +1,5 @@
 class TopicsController < ApplicationController
+  require 'paginate.rb'
   def index
     @topics = Topic.paginate(page: params[:page], per_page: 10)
     authorize @topics
