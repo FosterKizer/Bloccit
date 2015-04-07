@@ -1,0 +1,9 @@
+<div class="media">
+	<div class="media-body">
+		<%= comment.body %>
+    </div>
+</div>
+<small>
+    submitted <%= time_ago_in_words(comment.created_at) %> ago by
+    <%= comment.user.name %>
+</small>
