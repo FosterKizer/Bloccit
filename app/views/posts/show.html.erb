@@ -14,7 +14,8 @@
     <% end %></br></br>
     <%= render @comments %>
   </div>
-  <%= render 'comments/form', topic: @topic, post: @post %>
-  
+  <% if policy(@post.comments).create? %>
+	<%= render 'comments/form', topic: @topic, post: @post %>
+  <% end %>
   </div>
 </div>
