@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   resources :topics do
     resources :posts, except: [:index] do
-	  resources :comments, only: [:new]
+	  resources :comments, only: [:create]
 	end
   end
   
