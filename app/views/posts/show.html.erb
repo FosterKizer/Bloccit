@@ -11,7 +11,11 @@
       <%= @post.user.name %>
     </small>
     
-    <p><%= markdown_to_html @post.body %></p>
+    <p><%= markdown_to_html @post.body %></p></br></br>
+    
+    <% if @post.comments.any? %>
+	  <big>Comments</big>
+	<% end %>
     
     <%= render @comments %>
 	
@@ -29,15 +33,16 @@
     <% if policy(@post).destroy? %>
       <%= link_to "Delete Post", [@topic, @post], method: :delete, class: 'btn btn-danger', data: { confirm: 'Are you sure you want to delete this post?' } %>
     <% end %>
-      
+    
+    <%= render partial: 'favorites/favorite', locals: { post: @post } %>  
+    
     <div>
 	  <h3><%= pluralize(@post.points, 'point') %></h3>
 	  <small>
 	    <%= pluralize(@post.up_votes, 'up vote') %>,
 	    <%= pluralize(@post.down_votes, 'down vote') %>
-	  </small></br></br>
-    </div>
-      
+	  </small>
+    </div>  
   </div>
 </div>
 
