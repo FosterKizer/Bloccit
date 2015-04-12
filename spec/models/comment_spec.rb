@@ -13,7 +13,7 @@ describe Comment do
 		end
 		
 		it "sends an email to users who have favorited the post" do
-			favorite = @user.favoites.create(post: @post)
+			favorite = @user.favorites.create(post: @post)
 			
 			allow ( FavoriteMailer )
 				.to recieve(:new_comment)
