@@ -17,6 +17,10 @@ group :development, :test do
 	gem 'capybara'
 end
 
+group :development, :production do
+	gem 'puma'
+end
+
 gem 'bootstrap-sass'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
