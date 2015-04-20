@@ -1,4 +1,4 @@
-<%= form_for [post, post.comments.new] do |f| %>
+<%= form_for [@post, @post.comments.build], remote: true do |f| %>
 	<div class="form-group">
 		<p>_____________________________</p>
 		<p>New Comment</p>

@@ -11,13 +11,17 @@ class CommentsController < ApplicationController
 		@topic = @post.topic
 		@comment = current_user.comments.build(comment_params)
 		@comment.post = @post
+		@new_comment = Comment.new
 		authorize @comment
 		if @comment.save
 			flash[:notice] = "Comment was saved successfully"
-			redirect_to [@topic, @post]
 		else
 			flash[:error] = "Error creating comment. Please try again."
-			redirect_to [@topic, @post]
+		end
+		
+		respond_to do |format|
+			format.html
+			format.js
 		end
 	end
 	

@@ -17,11 +17,15 @@
 	  <big>Comments</big>
 	<% end %>
     
-    <%= render partial: 'comments/comment', collection: @comments %>
+    <div class='js-comments'>
+	  <%= render partial: 'comments/comment', collection: @comments %>
+	</div>
 	
-	<% if policy(@post.comments).create? %>
-	  <%= render partial: 'comments/form', locals: { topic: @topic, post: @post } %>
-	<% end %>
+	<div class='new-comment'>
+	  <% if policy(@post.comments).create? %>
+		<%= render 'comments/form' %>
+	  <% end %>
+	</div>
 	
   </div>  
   <div class="col-md-4">
